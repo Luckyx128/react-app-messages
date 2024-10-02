@@ -1,0 +1,7 @@
+/* src/components/Auth/LoadingScreen/style.css */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
