@@ -5,6 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(img/background_image_login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Ajuste para telas maiores */
+@media (min-width: 1024px) {
+  body {
+    background-position: center center;
+    background-size: cover;
+  }
 }
 
 code {

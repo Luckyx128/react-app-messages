@@ -1,5 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
@@ -11,7 +13,6 @@ function App() {
         <Route path="/home" element={<HomePage />} />
       </Routes>
     </Router>
-    
   );
 }
 
