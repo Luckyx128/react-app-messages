@@ -61,7 +61,7 @@ const SingUpForm = ({ onLoginClick }) => {
       <InputPadrao nome="telefone" tipo="tel" placeholder="Telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
       <InputPadrao nome="password" tipo="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
       <InputPadrao nome="ConfirmPassword" tipo="password" placeholder="Confirmar Senha" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-      <div>
+      <div className="radioButton">
         <label>
           <InputPadrao nome="tipo_plano" tipo="radio" value="mensal" checked={tipoPlano === 'mensal'} onChange={(e) => setTipoPlano(e.target.value)} />
             Mensal
