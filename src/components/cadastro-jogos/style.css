@@ -17,6 +17,11 @@
   gap: 10px;
 }
 
+.containerDataHora{
+  display: flex;
+  gap: 5px;
+}
+
 /* Estilo para os ícones */
 .icon {
   font-size: 30px;

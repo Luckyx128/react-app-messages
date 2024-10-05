@@ -56,27 +56,29 @@ function CadastroJogos() {
   return (
     <form className="CadJogos" onSubmit={handleSubmit}>
       <h2>Cadastro de Jogos</h2>
-      <div className="divAlinhamento">
-        <label htmlFor="data-jogo">
-          <FaCalendarAlt className="icon" />
-        </label>
-        <InputPadrao
-          nome="data-jogo"
-          tipo="date"
-          value={data}
-          onChange={({ target }) => setData(target.value)}
-        />
-      </div>
-      <div className="divAlinhamento">
-        <label htmlFor="hora-jogo">
-          <FaClock className="icon" />
-        </label>
-        <InputPadrao
-          nome="hora-jogo"
-          tipo="time"
-          value={hora}
-          onChange={({ target }) => setHora(target.value)}
-        />
+      <div className="containerDataHora">
+        <div className="divAlinhamento">
+          <label htmlFor="data-jogo">
+            <FaCalendarAlt className="icon" title="Definir Data do Jogo" />
+          </label>
+          <InputPadrao
+            nome="data-jogo"
+            tipo="date"
+            value={data}
+            onChange={({ target }) => setData(target.value)}
+          />
+        </div>
+        <div className="divAlinhamento">
+          <label htmlFor="hora-jogo">
+            <FaClock className="icon" title="Definir Horário do Jogo"/>
+          </label>
+          <InputPadrao
+            nome="hora-jogo"
+            tipo="time"
+            value={hora}
+            onChange={({ target }) => setHora(target.value)}
+          />
+        </div>
       </div>
 
       {/* Switcher Limitar Jogadores */}
@@ -99,7 +101,7 @@ function CadastroJogos() {
       {limitarJogadores && (
         <div className="divAlinhamento">
           <label htmlFor="limite-jogadores">
-            <GiSoccerKick className="icon" />
+            <GiSoccerKick className="icon" title="Definir Quantidade de Jogadores" />
           </label>
           <InputPadrao
             nome="limite-jogadores"
