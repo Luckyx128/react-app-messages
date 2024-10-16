@@ -1,0 +1,11 @@
+:root {
+    --cor-tema: #002370;
+  
+    --cor-primaria: #fb7b44;
+    --cor-secundaria: #ffbc50;
+  
+    --cor-texto-primaria: #ffffff;
+    --cor-texto-secundaria: #000000;
+  
+    --head-gradient: linear-gradient(to bottom , var(--cor-tema) 90%, var(--cor-secundaria) 100%)
+  }

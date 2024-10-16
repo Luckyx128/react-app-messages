@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import ButtonPadrao from "../../util/button";
 import InputPadrao from "../../util/inputLoginCadastro";
 import "./style.css";
-import { ref, push, set, database } from "../../util/firebase"
 
 
 const SingUpForm = ({ onLoginClick }) => {
@@ -13,7 +12,6 @@ const SingUpForm = ({ onLoginClick }) => {
   const [telefone, setTelefone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [tipoPlano, setTipoPlano] = useState("");
   const [msgErro, setMsgErro] = useState("");
 
 
@@ -21,9 +19,12 @@ const SingUpForm = ({ onLoginClick }) => {
     event.preventDefault();
 
     setMsgErro("");
-
+    if (password !== confirmPassword) {
+      setMsgErro("As senhas não correspondem!");
+      return;
+  }
     // Validações dos campos obrigatórios
-    if (!usuario || !nome || !email || !telefone || !password || !confirmPassword || !tipoPlano) {
+    if (!usuario || !nome || !email || !telefone || !password || !confirmPassword) {
         setMsgErro("Todos os campos são obrigatórios!");
         return;
       }
@@ -33,24 +34,27 @@ const SingUpForm = ({ onLoginClick }) => {
         return;
     }
 
-    try {
-      const userRef = ref(database, "login");
-      const newUserRef = push(userRef);
-
-      await set(newUserRef, {
-        usuario: usuario,
-        nome: nome,
-        email: email,
-        telefone: telefone,
+    fetch('http://127.0.0.1:9090/usuario/cadastrar',{
+      method:'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: nome,
+        email:email,
         password: password,
-        tipoPlano: tipoPlano,
-      });
+        phone_number:telefone,
+        username:usuario
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch((error) => {
+      console.error('Erro:', error);
+    });
 
-      
-      onLoginClick()
-    } catch (error) {
-        setMsgErro("Erro ao cadastrar o usuario: ", error.message);
-    }
   };
 
   return (
@@ -61,16 +65,6 @@ const SingUpForm = ({ onLoginClick }) => {
       <InputPadrao nome="telefone" tipo="tel" placeholder="Telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
       <InputPadrao nome="password" tipo="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
       <InputPadrao nome="ConfirmPassword" tipo="password" placeholder="Confirmar Senha" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-      <div>
-        <label>
-          <InputPadrao nome="tipo_plano" tipo="radio" value="mensal" checked={tipoPlano === 'mensal'} onChange={(e) => setTipoPlano(e.target.value)} />
-            Mensal
-        </label>
-        <label>
-          <InputPadrao nome="tipo_plano" tipo="radio" value="diario" checked={tipoPlano === 'mensal'} onChange={(e) => setTipoPlano(e.target.value)} />
-            Diário
-        </label>
-      </div>
       <p>
         Já tem uma conta?{" "}
         <a href="#" onClick={(e) => { e.preventDefault(); onLoginClick(); }} >
