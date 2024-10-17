@@ -1,10 +1,11 @@
 import React from 'react';
+import Card from '../components/home/card' 
 
 const HomePage = () => {
   return (
     <div>
-      <h1>Bem-vindo à Home</h1>
       {/* TODO Mostrar mensagens cadastradas no banco */}
+        <Card/>
       {/* Adicione aqui outros componentes que a HomePage irá gerenciar */}
     </div>
   );
