@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import LoadingScreen from "../components/Auth/LoadingScreen";
 import LoginForm from "../components/Auth/LoginForm";
 import SingUpForm from "../components/Auth/SingUpForm";
+import PushNotifications from "../components/notifications/PushNotifications";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ const LoginPage = () => {
 
   return (
     <div>
+        <PushNotifications/>
       {loading ? (
         <LoadingScreen />
       ) : isSignUp ? (

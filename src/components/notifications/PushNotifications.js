@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getToken } from "firebase/messaging";
+import { getToken, onMessage } from "firebase/messaging";
 import { messaging } from "../../firebase"; // Certifique-se de que o messaging foi exportado corretamente
 
 const PushNotifications = () => {
@@ -14,6 +14,10 @@ const PushNotifications = () => {
               .then((currentToken) => {
                 if (currentToken) {
                   console.log("Token:", currentToken);
+                onMessage((payload) => {
+                  console.log('Message received. ', payload);
+                  // ...
+                });
                   // Aqui você pode enviar o token ao backend ou armazená-lo conforme necessário
                 } else {
                   console.error("Nenhum token disponível. Solicite permissão ao usuário.");
