@@ -1,11 +1,10 @@
 import { React } from "react";
 import './style.css'
-import PushNotifications from "../../notifications/PushNotifications";
 
 const Card = () =>{
   return(
     <div className='card'>
-     <PushNotifications/> 
+      Card com display das mensagens
     </div>
   )
 }

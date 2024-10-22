@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { getToken, onMessage } from "firebase/messaging";
 import { messaging } from "../../firebase"; // Certifique-se de que o messaging foi exportado corretamente
-
+import Cookies from 'js-cookie';
 const PushNotifications = () => {
   useEffect(() => {
     // Verifica se o navegador suporta notificações
@@ -13,11 +13,31 @@ const PushNotifications = () => {
             getToken(messaging, { vapidKey: "BPkSlKHt-IU4KubtRBZw-OANPkxO3bh4ArW9gYSk0A4AELx7d-f0QkLv7-W3zbONVeybScmCvfHh15YXU5CYPaU" }) // Substitua YOUR_VAPID_KEY pelo VAPID key do seu projeto
               .then((currentToken) => {
                 if (currentToken) {
-                  console.log("Token:", currentToken);
-                onMessage((payload) => {
-                  console.log('Message received. ', payload);
-                  // ...
-                });
+                  console.log(currentToken);
+                  console.log(Cookies.get('token'))
+                  fetch('http://localhost:9090/notification/save', {
+                    method: 'POST',
+                    headers: {
+                      'Authorization': `Bearer ${Cookies.get('token')}`,
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                      user_id: "1",
+                      token: currentToken
+                    })
+                  })
+                    .then(response => response.json())
+                    .then(data => {
+                      console.log('Sucesso:', data);
+                    })
+                    .catch((error) => {
+                      console.error('Erro:', error);
+                    });
+
+                  onMessage((payload) => {
+                    console.log('Message received. ', payload);
+                    // ...
+                  });
                   // Aqui você pode enviar o token ao backend ou armazená-lo conforme necessário
                 } else {
                   console.error("Nenhum token disponível. Solicite permissão ao usuário.");
