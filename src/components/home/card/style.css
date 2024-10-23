@@ -1,5 +1,27 @@
 .card{
-  background-color: blue;
-  width: 50%;
-  height: 50%;
+  background-color: var(--cor-tema);
+  border-radius: 25px;
+  border: solid 1px var(--cor-primaria);
+  min-height: 25%;
+  width: 100%;
+  color: white;
+  margin-top: 5px;
+  max-width: 500px;
+}
+h4{
+  margin: 1px;
+  padding: 5px;
+}
+.card-header{
+  margin-top: 5px;
+  height: auto;
+  width: 100%;
+  border-bottom: dotted 1px var(--cor-primaria);
+  text-align: center;
+}
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  
 }

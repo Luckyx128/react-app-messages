@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: blue;
+  background-color: var(--cor-tema);
   border: solid 1px var(--cor-primaria);
   border-radius: 10px;
 }

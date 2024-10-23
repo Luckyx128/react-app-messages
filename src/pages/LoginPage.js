@@ -28,9 +28,8 @@ const LoginPage = () => {
 
   return (
     <div>
-      {loading ? (
-        <LoadingScreen />
-      ) : isSignUp ? (
+      {
+       isSignUp ? (
         <SingUpForm onLoginClick={handleLoginClick} />
       ) : (
         <LoginForm onSingUpClick={handleSignUpClick} />

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import ButtonPadrao from "../../util/button";
 import InputPadrao from "../../util/inputLoginCadastro";
-import {useNavigate } from "react-router-dom"; // Para redirecionar
+import { useNavigate } from "react-router-dom"; // Para redirecionar
 import Cookies from 'js-cookie';
 import "./style.css";
 const LoginForm = ({ onSingUpClick }) => {
@@ -15,9 +15,9 @@ const LoginForm = ({ onSingUpClick }) => {
     event.preventDefault();
     setMsgErro("");
 
-    fetch('http://127.0.0.1:9090/auth/login',{
-      method:'POST',
-      headers:{
+    fetch('http://127.0.0.1:9090/auth/login', {
+      method: 'POST',
+      headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -25,16 +25,16 @@ const LoginForm = ({ onSingUpClick }) => {
         password: password
       })
     })
-    .then(response => response.json())
-    .then(data => {
-      console.info(data['token'])
-      Cookies.set('token', data['token'], { expires: 7 });
-      navigate("/home");
-    })
-    .catch((error) => {
-      setMsgErro("Credenciais incorretas");
-      console.error('Erro:', error);
-    });
+      .then(response => response.json())
+      .then(data => {
+        Cookies.set('token', data['token'], { expires: 7 });
+        Cookies.set('username', username, { expires: 7 });
+        navigate("/home");
+      })
+      .catch((error) => {
+        setMsgErro("Credenciais incorretas");
+        console.error('Erro:', error);
+      });
     // try {
     //   // Cria uma referência para a tabela "login"
     //   const userRef = ref(database, "login");
@@ -83,7 +83,7 @@ const LoginForm = ({ onSingUpClick }) => {
 
       <p>
         Não tem uma conta?{" "}
-        <a href="#" onClick={(e) => {   e.preventDefault();   onSingUpClick(); }} >
+        <a href="#" onClick={(e) => { e.preventDefault(); onSingUpClick(); }} >
           Sign up
         </a>
       </p>

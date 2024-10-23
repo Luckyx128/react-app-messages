@@ -13,8 +13,6 @@ const PushNotifications = () => {
             getToken(messaging, { vapidKey: "BPkSlKHt-IU4KubtRBZw-OANPkxO3bh4ArW9gYSk0A4AELx7d-f0QkLv7-W3zbONVeybScmCvfHh15YXU5CYPaU" }) // Substitua YOUR_VAPID_KEY pelo VAPID key do seu projeto
               .then((currentToken) => {
                 if (currentToken) {
-                  console.log(currentToken);
-                  console.log(Cookies.get('token'))
                   fetch('http://localhost:9090/notification/save', {
                     method: 'POST',
                     headers: {
@@ -22,7 +20,7 @@ const PushNotifications = () => {
                       'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                      user_id: "1",
+                      username: Cookies.get('username'),
                       token: currentToken
                     })
                   })
