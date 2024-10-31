@@ -1,5 +1,7 @@
 import Cookies from "js-cookie";
-const RefreshToken = (token:string):Promise<boolean> => {
+import { useState } from "react";
+const RefreshToken = (token:string):boolean => {
+    const [result,setResult] = useState(false);
     fetch('http://localhost:9090/auth/refresh-token', {
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
@@ -15,13 +17,15 @@ const RefreshToken = (token:string):Promise<boolean> => {
           } )
         .then(data => {
             if (data[0] === 'vazio') {
-                return false
+                
+                setResult(false)
             } else {
                 Cookies.set('refresh-token', data["refreshToken"]);
                 Cookies.set('token', data["token"]);
-                return true
+                setResult(true)
             }
         })
+    return  result
 }
 
 export default RefreshToken;

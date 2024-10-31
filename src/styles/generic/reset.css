@@ -24,6 +24,7 @@ form {
 ::-webkit-scrollbar {
     width: 12px; /* Largura da scrollbar */
     height: 12px; /* Altura da scrollbar */
+    position: absolute;
 }
 
 /* Estilizando a parte da barra de rolagem */

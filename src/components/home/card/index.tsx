@@ -1,8 +1,17 @@
 import React  from "react";
 import './style.css'
-import PropTypes from "prop-types";
 
-const Card = ({item}) =>{
+type Itens = {
+    motivo:string;
+    dataenvio:string;
+    conteudo:string;
+}
+
+type CardProps = {
+    item: Itens;
+}
+
+const Card: React.FC<CardProps> = ({item}) =>{
   return(
     <div className='card'>
       <div className="card-header">
@@ -21,7 +30,5 @@ const Card = ({item}) =>{
     </div>
   )
 }
-Card.propTypes = {
-    item: PropTypes.object.isRequired,
-}
+
 export default Card;

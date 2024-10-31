@@ -4,7 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--cor-texto-primaria);
     background-color: var(--cor-tema);
     border-bottom: solid 1px var(--cor-primaria);
+}
+
+#user{
+    color: var(--cor-texto-primaria);
+    font-weight: bold;
+    margin: auto;
+}
+
+#logoff{
+    margin-right: 5px;
 }

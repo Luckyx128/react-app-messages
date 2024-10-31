@@ -1,9 +1,21 @@
 // src\components\util\input\index.tsx
-import React from "react";
-import PropTypes from 'prop-types';
+import React, {ChangeEventHandler} from "react";
 import "./style.css";
 
-function InputPadrao({ tipo, placeholder, nome, value, onChange, checked }) {
+type InputPadraoProps = {
+  tipo: string,
+  nome: string,
+  placeholder: string,
+  value: string,
+  onChange:ChangeEventHandler,
+};
+
+const InputPadrao:React.FC<InputPadraoProps> =  ({
+                                                   tipo,
+                                                   placeholder,
+                                                   nome,
+                                                   value,
+                                                   onChange}) => {
   return (
     <input
       id={nome}
@@ -12,18 +24,11 @@ function InputPadrao({ tipo, placeholder, nome, value, onChange, checked }) {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      checked={checked} // para inputs do tipo radio
+      required={true}
     />
   );
 }
 
-InputPadrao.propTypes = {
-  tipo: PropTypes.string.isRequired,
-  nome: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  checked: PropTypes.bool // Prop para lidar com inputs do tipo radio
-};
+
 
 export default InputPadrao;

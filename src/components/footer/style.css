@@ -4,7 +4,10 @@
     align-items: center;
     width: 100%;
     height: 10%;
-    color: white;
+    color: var(--cor-texto-primaria);
     background-color: var(--cor-tema);
     border-top: solid 1px var(--cor-primaria);
+}
+#span-footer{
+    margin-left: 10px;
 }

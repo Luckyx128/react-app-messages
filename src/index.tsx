@@ -6,8 +6,6 @@ import './styles/generic/reset.css'
 import './styles/setings/colors.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {DevSupport} from "@react-buddy/ide-toolbox";
-import {ComponentPreviews, useInitial} from "./dev";
 
 /*if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -22,14 +20,10 @@ import {ComponentPreviews, useInitial} from "./dev";
   });
 }
 */
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
     <React.StrictMode>
-        <DevSupport ComponentPreviews={ComponentPreviews}
-                    useInitialHook={useInitial}
-        >
             <App/>
-        </DevSupport>
     </React.StrictMode>
 );
 

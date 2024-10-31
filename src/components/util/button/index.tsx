@@ -1,13 +1,16 @@
 import React from "react";
-import PropTypes from 'prop-types'
+
 import './style.css'
+import 'boxicons'
+type ButtonPadraoProps = {
+    titulo : string;
+    icone: string
+};
 
-function ButtonPadrao({titulo}){
-    return <button type="submit"> {titulo} </button>
+const ButtonPadrao: React.FC<ButtonPadraoProps> = ({titulo,icone}) =>{
+    return <button type="submit"> {titulo} <box-icon color='white' name={icone}></box-icon>
+         </button>
 }
 
-ButtonPadrao.propTypes = {
-    titulo : PropTypes.string.isRequired
-}
 
 export default ButtonPadrao

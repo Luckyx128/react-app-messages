@@ -1,22 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
-import Footer from './components/footer';
-import Header from './components/header';
+import Login from "./pages/Login";
+import Home from "./pages/Home"
 function App() {
   return (
     <Router>
-      <Header />
+
       <main id='content-main'>
         <Routes>
-          {/* Rota principal (LoginPage) */}
-          <Route path="/" element={<LoginPage />} />
+          {/* Rota principal (Index) */}
+          <Route path="/" element={< Login/>} />
           {/* Rota Home */}
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/home" element={<Home/>} />
         </Routes>
       </main>
-      <Footer />
+
     </Router>
   );
 }

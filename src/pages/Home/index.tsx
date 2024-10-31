@@ -16,7 +16,7 @@ type MessageItem = {
 };
 
 
-const HomePage = () => {
+const Home = () => {
   const [loaded,setLoaded] = React.useState(false);
   const [messages,setMessages] = React.useState<MessageItem[]>([])
     const navigate   = useNavigate();
@@ -36,16 +36,18 @@ const HomePage = () => {
               })
           if(response.status !== 401) {
               data = await response.json()
+                  console.log(data)
                   setMessages(data);
                   setLoaded(true);
 
           }else{
               console.warn('reiniciar auth')
-              let result = RefreshToken(Cookies.get('refresh-token')|| '')
+              let result = RefreshToken(Cookies.get('refresh-token')?? '')
+              console.log(result)
               if (!result){navigate('/')}
           }
       }catch (e){
-          console.log(e)
+       document.querySelectorAll('h4')[0].innerText = 'Erro ao carregar ultimas mensagens'
       }
 
 
@@ -54,21 +56,29 @@ const HomePage = () => {
   messages()
     },[])
   if (!loaded) {
-    return <h4>Carregando ultimas mensagens</h4>
+    return(
+          <div id={'homePage'}>
+          <Header/>
+          <div className='home'>
+            <h4>Carregando ultimas mensagens</h4>
+          </div>
+          <Footer/>
+          </div>
+        ) 
   }else{
   return (
-      <>
+      <div id={'homePage'}>
       <Header/>
     <div className='home'>
         <PushNotifications/>
+        <h1>Ultimos aviso!</h1>
       {/* TODO Mostrar mensagens cadastradas no banco */}
         {messages.map(item => <Card key={item.id} item={item}/>)}
-      {/* Adicione aqui outros componentes que a HomePage irá gerenciar */}
     </div>
       <Footer />
-      </>
+      </div>
   );
   }
 };
 
-export default HomePage;
+export default Home;

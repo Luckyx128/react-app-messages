@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getToken, onMessage} from "firebase/messaging";
+import { getToken, onMessage,MessagePayload} from "firebase/messaging";
 import { messaging } from "../../firebase"; // Certifique-se de que o messaging foi exportado corretamente
 import Cookies from 'js-cookie';
 const PushNotifications = () => {
@@ -28,7 +28,7 @@ const PushNotifications = () => {
                       console.error('Erro:', error);
                     });
 
-                  onMessage((payload) => {
+                  onMessage(messaging,(payload:MessagePayload) => {
                     console.log('Message received. ', payload);
                     // ...
                   });
@@ -51,7 +51,7 @@ const PushNotifications = () => {
       console.error("Notificações não são suportadas neste navegador.");
     }
   }, []);
-
+return null;
 };
 
 export default PushNotifications;

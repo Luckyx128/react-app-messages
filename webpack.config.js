@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     mode: 'production',
     // Ponto de entrada do seu aplicativo
-    entry: './src/index.js',
+    entry: './src/index.tsx',
     // Configuração de saída
     output: {
         path: path.resolve(__dirname, 'build'),

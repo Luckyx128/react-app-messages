@@ -1,9 +1,9 @@
-// src/pages/LoginPage.js
+// src/pages/Index.js
 import React, { useState } from "react";
 import LoginForm from "../../components/Auth/LoginForm";
 import SingUpForm from "../../components/Auth/SingUpForm";
-
-const LoginPage = () => {
+import './style.css'
+const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
 
   const handleSignUpClick = () => {
@@ -17,16 +17,19 @@ const LoginPage = () => {
   };
 
   return (
-    <div id={'login'}>
-      {
-       isSignUp ? (
-        <SingUpForm onLoginClick={handleLoginClick} />
-      ) : (
-        <LoginForm onSingUpClick={handleSignUpClick} />
-      )
-    }
-    </div>
+      <div id={'login'}>
+        <main id={'loginFormStructure'}>
+          <h1>Seja muito bem vindo!</h1>
+          {
+            isSignUp ? (
+                <SingUpForm onLoginClick={handleLoginClick}/>
+            ) : (
+                <LoginForm onSingUpClick={handleSignUpClick}/>
+            )
+          }
+        </main>
+      </div>
   );
 };
 
-export default LoginPage;
+export default Login;

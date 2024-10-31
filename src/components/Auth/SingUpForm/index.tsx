@@ -4,8 +4,11 @@ import ButtonPadrao from "../../util/button";
 import InputPadrao from "../../util/inputLoginCadastro";
 import "./style.css";
 
+type SingUpFormProps = {
+  onLoginClick: () => void,
+}
 
-const SingUpForm = ({ onLoginClick }) => {
+const SingUpForm: React.FC<SingUpFormProps> = ({ onLoginClick }) => {
   const [usuario, setUsuario] = useState("");
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
@@ -15,7 +18,7 @@ const SingUpForm = ({ onLoginClick }) => {
   const [msgErro, setMsgErro] = useState("");
 
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event:any) => {
     event.preventDefault();
 
     setMsgErro("");
@@ -50,6 +53,7 @@ const SingUpForm = ({ onLoginClick }) => {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+      onLoginClick()
     })
     .catch((error) => {
       console.error('Erro:', error);
@@ -58,22 +62,25 @@ const SingUpForm = ({ onLoginClick }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      <InputPadrao nome="usuario" tipo="text" placeholder="Usuário" value={usuario} onChange={(e) => setUsuario(e.target.value) } />
-      <InputPadrao nome="nome" tipo="text" placeholder="Nome Completo" value={nome} onChange={(e) => setNome(e.target.value)} />
-      <InputPadrao nome="email" tipo="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <InputPadrao nome="telefone" tipo="tel" placeholder="Telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
-      <InputPadrao nome="password" tipo="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <InputPadrao nome="ConfirmPassword" tipo="password" placeholder="Confirmar Senha" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+      <>
+      <h2>Cadastrar</h2>
+  <form onSubmit={handleSubmit} className="login-form">
+      <InputPadrao nome="usuario" tipo="text" placeholder="Usuário" value={usuario} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsuario(e.target.value) } />
+      <InputPadrao nome="nome" tipo="text" placeholder="Nome Completo" value={nome} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNome(e.target.value)} />
+      <InputPadrao nome="email" tipo="email" placeholder="Email" value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} />
+      <InputPadrao nome="telefone" tipo="tel" placeholder="Telefone" value={telefone} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTelefone(e.target.value)}/>
+      <InputPadrao nome="password" tipo="password" placeholder="Senha" value={password} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} />
+      <InputPadrao nome="ConfirmPassword" tipo="password" placeholder="Confirmar Senha" value={confirmPassword} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)} />
+      {msgErro && <span id="msgErro" className="erro">{msgErro}</span>}
+      <ButtonPadrao titulo={'Cadastrar'} icone="user-plus" />
       <p>
         Já tem uma conta?{" "}
-        <a href="#" onClick={(e) => { e.preventDefault(); onLoginClick(); }} >
-          Log in
+        <a href="#section" id={'entrar'} onClick={(e) => { e.preventDefault(); onLoginClick(); }} >
+          Entrar
         </a>
       </p>
-      <ButtonPadrao titulo="Cadastrar" />
-      {msgErro && <span id="msgErro" className="erro">{msgErro}</span>}
     </form>
+      </>
   );
 };
 

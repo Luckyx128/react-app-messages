@@ -1,12 +1,10 @@
 import React from "react";
 import './style.css';
 
-const Footer = () => {
+const Footer:React.FC = () => {
     return(
         <footer className="footer">
-            <div>Nome do aplicativo</div>
-            <div>Rede social </div>
-            <div>Plansul</div>
+            <span id={'span-footer'}>© 2024 Plansul. Todos os direitos reservados.</span>
         </footer>
     )
 }

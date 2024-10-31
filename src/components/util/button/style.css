@@ -1,11 +1,14 @@
 button {
     padding: 10px;
-    background-color: #006400;
-    color: white;
+    background-color: var(--cor-tema);
+    color: var(--cor-texto-primaria);
     cursor: pointer;
     border: 1px rgba(0, 0, 0, 0.205) solid;
-    width: 100%;
-    max-width: 110px;
+    width: 75vw;
+    max-width: 500px;
     margin-top: 20px;
     border-radius: 25px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
   }
