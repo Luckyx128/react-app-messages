@@ -1,4 +1,4 @@
-// src\components\util\input\index.js
+// src\components\util\input\index.tsx
 import React from "react";
 import PropTypes from 'prop-types'
 import "./style.css"

@@ -1,4 +1,4 @@
-// src/util/firebase/index.js
+// src/util/firebase/index.tsx
 
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, get, child, push, orderByChild, equalTo, query  } from "firebase/database";

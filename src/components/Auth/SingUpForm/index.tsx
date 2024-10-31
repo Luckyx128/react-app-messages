@@ -1,4 +1,4 @@
-// src/components/Auth/LoginForm/index.js
+// src/components/Auth/LoginForm/index.tsx
 import React, { useState } from "react";
 import ButtonPadrao from "../../util/button";
 import InputPadrao from "../../util/inputLoginCadastro";

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getToken, onMessage } from "firebase/messaging";
+import { getToken, onMessage} from "firebase/messaging";
 import { messaging } from "../../firebase"; // Certifique-se de que o messaging foi exportado corretamente
 import Cookies from 'js-cookie';
 const PushNotifications = () => {
@@ -24,10 +24,6 @@ const PushNotifications = () => {
                       token: currentToken
                     })
                   })
-                    .then(response => response.json())
-                    .then(data => {
-                      console.log('Sucesso:', data);
-                    })
                     .catch((error) => {
                       console.error('Erro:', error);
                     });

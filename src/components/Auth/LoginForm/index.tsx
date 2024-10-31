@@ -1,4 +1,4 @@
-// src/components/Auth/LoginForm/index.js
+// src/components/Auth/LoginForm/index.tsx
 import React, { useState } from "react";
 import ButtonPadrao from "../../util/button";
 import InputPadrao from "../../util/inputLoginCadastro";
@@ -29,6 +29,7 @@ const LoginForm = ({ onSingUpClick }) => {
       .then(data => {
         Cookies.set('token', data['token'], { expires: 7 });
         Cookies.set('username', username, { expires: 7 });
+        Cookies.set('refresh-token',data['refreshToken'],{ expires:7})
         navigate("/home");
       })
       .catch((error) => {
