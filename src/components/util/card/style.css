@@ -1,0 +1,48 @@
+.cards {
+    width: 36vw;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: #2F4F4F;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.cards header {
+    width: 95%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2% 2% 0% 2%;
+}
+.cards header h3 {
+    font-size: clamp(0.7rem, 0.3043rem + 1vw, 1rem);
+    color: #fff;
+}
+.cards div {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 75%;
+    gap: 20%;
+}
+.cards div .adjust_date {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.cards ol {
+    padding: 0;
+}
+.cards div p,.cards ol li {
+    font-size: clamp(0.6rem, 0.3043rem + 1.5vw, 1rem);
+    color: #fff;
+    text-align: start;
+    margin: 0;
+}
