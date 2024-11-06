@@ -27,7 +27,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className="formularios">
       {loading ? (
         <LoadingScreen />
       ) : isSignUp ? (

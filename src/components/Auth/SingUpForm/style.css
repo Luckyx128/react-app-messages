@@ -3,14 +3,14 @@
     color: #ee6262e8;
 }
 
-div{
+.radioButton{
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
-label{
+.login-form label{
     display: flex;
     align-items: center;
     width: 40%;
