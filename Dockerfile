@@ -1,30 +1,23 @@
-# Etapa de build
-FROM node:20-alpine AS build
+# Usando uma imagem do Node.js para construir e rodar a aplicação React
+FROM node:16
 
-# Definir o diretório de trabalho dentro do container
-WORKDIR /app
+# Definir diretório de trabalho
+WORKDIR /usr/src/app
 
-# Copiar os arquivos de configuração
-COPY package.json ./
-COPY package-lock.json ./
-
-# Instalar as dependências
+# Copiar arquivos de dependências e instalá-las
+COPY package*.json ./
 RUN npm install
 
-# Copiar o restante dos arquivos do projeto
+# Copiar o código da aplicação
 COPY . .
 
-# Fazer o build da aplicação React
+# Construir a aplicação
 RUN npm run build
+RUN  npm install -g serve
 
-# Etapa de produção
-FROM nginx:alpine
 
-# Copiar os arquivos de build do React para o NGINX
-COPY --from=build /app/build /usr/share/nginx/html
+# Expor a porta usada pela aplicação React
+EXPOSE 3000
 
-# Expor a porta 80
-EXPOSE 80
-
-# Iniciar o NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# Rodar a aplicação
+CMD ["serve","-s", "build"]

@@ -1,4 +1,4 @@
-// src/components/Auth/LoadingScreen/index.js
+// src/components/Auth/LoadingScreen/index.tsx
 import React from "react";
 import "./style.css";
 import ImgLogo from '../../../img/sedentarios_futebol_clube_logo.png';

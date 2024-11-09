@@ -1,0 +1,45 @@
+@import-normalize;
+
+body {
+    margin:0;
+}
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+form {
+    margin: 0;
+}
+/* Estilizando a barra de rolagem */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da scrollbar */
+    height: 12px; /* Altura da scrollbar */
+    position: absolute;
+}
+
+/* Estilizando a parte da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor do "thumb" */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Estilizando a parte de fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: var(--cor-tema); /* Cor de fundo da scrollbar */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Mudando a cor do "thumb" quando o mouse passa por cima */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor do "thumb" quando hover */
+}

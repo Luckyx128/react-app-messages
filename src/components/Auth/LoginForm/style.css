@@ -1,27 +1,46 @@
 /* src/components/Auth/LoginForm/style.css */
+#loginFormStructure{
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: #2f4f4f;
   border-radius: 10px;
 }
 
 p {
+  margin-top: 10px;
   color: #6b7280;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size:15px;
   text-align: center;
+}
+h1{
+  text-align: center;
+}
+
+h2{
+  max-width: 50vw;
+}
+
+#cadastrar{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15px;
 }
 
 a {
   text-decoration: underline;
-  color: #fff;
+  color: var(--cor-texto-secundaria);
 }
 
 a:hover{
-  color: #ffeba7;
+  color: var(--cor-primaria);
 }
 
