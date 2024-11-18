@@ -26,7 +26,7 @@ const Home = () => {
   async  function messages() {
       let data = null
       try {
-          const response:Response = await fetch(`http://localhost:9090/messages/${Cookies.get('username')}`,
+          const response:Response = await fetch(`http://localhost:8080/messages/${Cookies.get('username')}`,
               {
                   method: "GET",
                   headers: {
@@ -64,7 +64,7 @@ const Home = () => {
           </div>
           <Footer/>
           </div>
-        ) 
+        )
   }else{
   return (
       <div id={'homePage'}>

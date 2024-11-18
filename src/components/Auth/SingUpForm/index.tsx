@@ -31,13 +31,13 @@ const SingUpForm: React.FC<SingUpFormProps> = ({ onLoginClick }) => {
         setMsgErro("Todos os campos são obrigatórios!");
         return;
       }
-    
+
       if (password !== confirmPassword) {
         setMsgErro("As senhas não correspondem!");
         return;
     }
 
-    fetch('http://127.0.0.1:9090/usuario/cadastrar',{
+    fetch('http://127.0.0.1:8080/usuario/cadastrar',{
       method:'POST',
       headers:{
         'Content-Type': 'application/json'

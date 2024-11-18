@@ -13,7 +13,7 @@ const PushNotifications = () => {
             getToken(messaging, { vapidKey: "BPkSlKHt-IU4KubtRBZw-OANPkxO3bh4ArW9gYSk0A4AELx7d-f0QkLv7-W3zbONVeybScmCvfHh15YXU5CYPaU" }) // Substitua YOUR_VAPID_KEY pelo VAPID key do seu projeto
               .then((currentToken) => {
                 if (currentToken) {
-                  fetch('http://localhost:9090/notification/save', {
+                  fetch('http://localhost:8080/notification/save', {
                     method: 'POST',
                     headers: {
                       'Authorization': `Bearer ${Cookies.get('token')}`,

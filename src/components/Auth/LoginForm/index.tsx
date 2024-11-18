@@ -23,7 +23,7 @@ const LoginForm: React.FC<LoginFormProp> = ({ onSingUpClick }) => {
     setMsgErro("");
     async function logar() {
       try {
-        const response = await fetch('http://127.0.0.1:9090/auth/login', {
+        const response = await fetch('http://127.0.0.1:8080/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ const LoginForm: React.FC<LoginFormProp> = ({ onSingUpClick }) => {
       } catch (error) {
         setMsgErro('Erro de conexção contate o Administrador!')
       }
-        
+
     }
         logar()
   };

@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import { useState } from "react";
 const RefreshToken = (token:string):boolean => {
     const [result,setResult] = useState(false);
-    fetch('http://localhost:9090/auth/refresh-token', {
+    fetch('http://localhost:8080/auth/refresh-token', {
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({token:token})
@@ -17,7 +17,7 @@ const RefreshToken = (token:string):boolean => {
           } )
         .then(data => {
             if (data[0] === 'vazio') {
-                
+
                 setResult(false)
             } else {
                 Cookies.set('refresh-token', data["refreshToken"]);
