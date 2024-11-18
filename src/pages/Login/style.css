@@ -1,12 +1,21 @@
-#login{
+#login {
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.erro{
+.erro {
     font-size: medium;
     font-weight: bold;
     text-align: center;
     color: #ee6262e8;
+}
+
+#loginFormStructure {
+    background: #002370;
+    border-radius: 25px;
+    color: white;
 }
