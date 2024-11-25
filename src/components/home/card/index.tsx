@@ -9,9 +9,10 @@ type Itens = {
 
 type CardProps = {
     item: Itens;
+    fechar:JSX.Element;
 }
 
-const Card: React.FC<CardProps> = ({item}) =>{
+const Card: React.FC<CardProps> = ({item,fechar}) =>{
   return(
     <div className='card'>
       <div className="card-header">
@@ -21,6 +22,9 @@ const Card: React.FC<CardProps> = ({item}) =>{
         <span>
               {item.dataenvio}
         </span>
+          <span>
+              {fechar}
+          </span>
       </div>
       <section className="content" >
         <p>

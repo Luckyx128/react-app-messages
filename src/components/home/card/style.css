@@ -21,7 +21,7 @@ h4{
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: stretch;
+  justify-content: space-between;
 }
 .content{
   display: flex;
